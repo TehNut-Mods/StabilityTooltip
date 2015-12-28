@@ -45,7 +45,7 @@ public class StabilityTooltip {
 
             if (!jsonConfig.exists() && jsonConfig.createNewFile()) {
                 Map<String, EnumStability> defaultMap = new HashMap<String, EnumStability>();
-                defaultMap.put("minecraft", EnumStability.DANGEROUS);
+                defaultMap.put("minecraft", EnumStability.STABLE);
                 String json = gson.toJson(defaultMap, new TypeToken<Map<String, EnumStability>>(){ }.getType());
                 FileWriter writer = new FileWriter(jsonConfig);
                 writer.write(json);
