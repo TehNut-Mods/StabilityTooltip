@@ -1,10 +1,11 @@
-package tehnut.stable;
+package tehnut.stabilitytooltip;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
@@ -73,5 +74,30 @@ public class StabilityTooltip {
         ResourceLocation info = Item.itemRegistry.getNameForObject(check);
 
         return info.toString().split(":")[0];
+    }
+
+    public enum EnumStability {
+        STABLE("desc.stability.stabilitytooltip"),
+        SEMISTABLE("desc.stability.semistable"),
+        UNSTABLE("desc.stability.unstable"),
+        DANGEROUS("desc.stability.dangerous");
+
+        private String descKey;
+
+        EnumStability(String descKey) {
+            this.descKey = descKey;
+        }
+
+        public String getDescription() {
+            return descKey;
+        }
+
+        public String getFancyDescription() {
+            return StatCollector.translateToLocal(getDescription()).replace("&", "\u00A7");
+        }
+
+        public String getLocalizedDescription() {
+            return EnumChatFormatting.getTextWithoutFormattingCodes(getFancyDescription());
+        }
     }
 }
