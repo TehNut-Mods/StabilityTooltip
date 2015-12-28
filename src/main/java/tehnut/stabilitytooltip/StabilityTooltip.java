@@ -77,7 +77,7 @@ public class StabilityTooltip {
     }
 
     public enum EnumStability {
-        STABLE("desc.stability.stabilitytooltip"),
+        STABLE("desc.stability.stable"),
         SEMISTABLE("desc.stability.semistable"),
         UNSTABLE("desc.stability.unstable"),
         DANGEROUS("desc.stability.dangerous");
