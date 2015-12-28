@@ -1,0 +1,16 @@
+[
+{
+  "modid": "StabilityTooltip",
+  "name": "StabilityTooltip",
+  "description": "Displays stability state of a mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://tehnut.info/",
+  "updateUrl": "http://tehnut.info/",
+  "authorList": [ "TehNut" ],
+  "credits": "BBoldt for the request",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

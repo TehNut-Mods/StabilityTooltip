@@ -1,0 +1,5 @@
+desc.stability.format=&oStability: %s
+desc.stability.stable=&a&oStable
+desc.stability.semistable=&e&oSemi-Stable
+desc.stability.unstable=&6&oUnstable
+desc.stability.dangerous=&c&oDangerous
