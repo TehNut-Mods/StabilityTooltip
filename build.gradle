@@ -70,7 +70,6 @@ processResources {
 }
 
 jar {
-    classifier = 'client'
     manifest.mainAttributes(
             "Built-By": System.getProperty('user.name'),
             "Created-By": "${System.getProperty('java.vm.version')} + (${System.getProperty('java.vm.vendor')})",
