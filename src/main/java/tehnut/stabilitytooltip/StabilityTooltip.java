@@ -3,17 +3,16 @@ package tehnut.stabilitytooltip;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.EventPriority;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.io.File;
 import java.io.FileReader;
@@ -22,7 +21,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@Mod(modid = StabilityTooltip.MODID, name = StabilityTooltip.NAME, version = StabilityTooltip.VERSION, dependencies = "after:Waila", canBeDeactivated = true, acceptedMinecraftVersions = "[1.8,)")
+@Mod(modid = StabilityTooltip.MODID, name = StabilityTooltip.NAME, version = StabilityTooltip.VERSION, dependencies = "after:Waila", canBeDeactivated = true)
 public class StabilityTooltip {
 
     public static final String MODID = "StabilityTooltip";
@@ -71,9 +70,9 @@ public class StabilityTooltip {
 
     private static String getModidFromStack(ItemStack stack) {
         Item check = stack.getItem();
-        ResourceLocation info = Item.itemRegistry.getNameForObject(check);
+        String info = Item.itemRegistry.getNameForObject(check);
 
-        return info.toString().split(":")[0];
+        return info.split(":")[0];
     }
 
     public enum EnumStability {
