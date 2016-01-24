@@ -22,6 +22,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 @Mod(modid = StabilityTooltip.MODID, name = StabilityTooltip.NAME, version = StabilityTooltip.VERSION, dependencies = "after:Waila", canBeDeactivated = true, acceptedMinecraftVersions = "[1.8,)")
@@ -49,7 +50,7 @@ public class StabilityTooltip {
             if (!jsonConfig.exists() && jsonConfig.createNewFile()) {
                 Map<String, EnumStability> defaultMap = new HashMap<String, EnumStability>();
                 for (ModContainer modContainer : Loader.instance().getActiveModList())
-                    defaultMap.put(modContainer.getModId(), EnumStability.STABLE);
+                    defaultMap.put(modContainer.getModId().toLowerCase(Locale.ENGLISH), EnumStability.STABLE);
                 defaultMap.put("minecraft", EnumStability.STABLE);
                 String json = gson.toJson(defaultMap, new TypeToken<Map<String, EnumStability>>(){ }.getType());
                 FileWriter writer = new FileWriter(jsonConfig);
