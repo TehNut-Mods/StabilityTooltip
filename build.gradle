@@ -42,7 +42,7 @@ repositories {
 dependencies {
     deobfCompile "mezz.jei:jei_1.8.9:${jei_version}"
 
-    compile ("mcp.mobius.waila:Waila:${waila_version}_${mc_version}:dev") {
+    compile ("mcp.mobius.waila:Waila:${waila_version}_1.8.8:dev") {
         exclude group: 'mcp.mobius.waila'
     }
 }
