@@ -10,7 +10,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -46,6 +48,8 @@ public class StabilityTooltip {
 
             if (!jsonConfig.exists() && jsonConfig.createNewFile()) {
                 Map<String, EnumStability> defaultMap = new HashMap<String, EnumStability>();
+                for (ModContainer modContainer : Loader.instance().getActiveModList())
+                    defaultMap.put(modContainer.getModId(), EnumStability.STABLE);
                 defaultMap.put("minecraft", EnumStability.STABLE);
                 String json = gson.toJson(defaultMap, new TypeToken<Map<String, EnumStability>>(){ }.getType());
                 FileWriter writer = new FileWriter(jsonConfig);
